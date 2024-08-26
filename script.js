@@ -842,7 +842,7 @@ function show() {
                 </div>
                 <div class="texts p-4">
                     <p class="font-bold text-lg">${item.price} $</p>
-                    <p class="font-medium text-md">${item.name}</p>
+                    <p class="font-medium text-md">${item.brand}, ${item.model}</p>
                     <p>${item.year}, 2.0 L, 0 km</p>
                     <p class="text-[#8d94ad]">${item.city}, bugun 22:01</p>    
 
@@ -864,3 +864,11 @@ function bas() {
         body.style.overflow = '';
     }
 }
+const buttons = document.querySelectorAll('.active-buttons button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        buttons.forEach(btn => btn.classList.remove('active')); 
+        this.classList.add('active'); 
+    });
+});

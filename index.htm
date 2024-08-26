@@ -5,7 +5,7 @@
     <!-- npx tailwindcss -i ./src/input.css -o ./src/output.css --watch -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>turbo.az</title>
+    <title>Turbo.Az</title>
     <link href="src/output.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -80,31 +80,34 @@
     <main>
         <div class="max-w-full bg-white mx-4 my-2 cursor-pointer rounded-md md:hidden lg:hidden">
             <div class="inputs-mobile flex justify-between items-center p-4 text-center">
-                <div class="mx-2">
-                    <i class="fa-solid fa-car text-[#b52a2a]"></i>
-                    <a class="px-2" href="">Bütün markalar </a>
-                </div>
-                <button class="fa-solid fa-chevron-down text-[#8d94ad] text-end px-4 "></button>
+                <i class="fa-solid fa-car px-4 text-[#b52a2a]"></i>
+                <select class=" w-[330px] appearance-none">
+                    <option value="marka" class="text-[#8f8c8c] ">Bütün Markalar</option>
+                </select>
+                <i class="fa-solid fa-chevron-right text-[#8d94ad] text-end  px-4 "></i>
+
             </div>
             <hr class="mx-2" />
             <div class="flex items-center p-4 text-center mx-2">
-                <i class="fa-solid fa-arrow-down-short-wide  text-[#b52a2a]"></i>
+                <i class="fa-solid fa-arrow-down-short-wide px-2  text-[#b52a2a]"></i>
                 <a class="px-2" href="#">Filtrlər</a>
             </div>
         </div>
 
         <div class="flex justify-between items-center p-3 text-center bg-white mx-4 rounded-md md:hidden lg:hidden">
-            <div class="mx-2">
-                <a class="px-2" href="">Moto </a>
-            </div>
-            <button class="fa-solid fa-chevron-right text-[#8d94ad] text-end px-4 "></button>
+            <select class="px-4 w-[330px] appearance-none">
+                <option value="marka" class="text-[#8f8c8c] ">Moto</option>
+            </select>
+            <i class="fa-solid fa-chevron-right text-[#8d94ad] text-end  px-4 "></i>
+
         </div>
         <div
             class="flex justify-between items-center p-3 mt-2 text-center bg-white mx-4 rounded-md md:hidden lg:hidden">
-            <div class="mx-2">
-                <a class="px-2" href="">Avtokataloq </a>
-            </div>
-            <button class="fa-solid fa-chevron-right text-[#8d94ad] text-end px-4 "></button>
+            <select class="px-2 w-[330px] appearance-none">
+                <option value="marka" class="text-[#8f8c8c] py-5">Avtokataloq</option>
+            </select>
+
+            <i class="fa-solid fa-chevron-right text-[#8d94ad] text-end px-4 "></i>
         </div>
         <div class="md:hidden lg:hidden">
             <p class="m-3 px-2">Bu gun: <a class="text-[#4c88f9]" href="">1760 yeni elan</a></p>
@@ -119,24 +122,32 @@
         </div>
         <div class="xl:container xl:px-[170px]">
             <div
-                class="hidden md:flex md:flex-wrap md:items-center md:justify-center lg:items-center lg:justify-center lg:flex mt-3 lg:flex-wrap mx-3 ">
-                <div class="cursor-pointer relative mx-3 "><input class="w-[250px] h-[48px] rounded-md outline-none"
-                        type="text" placeholder="  Marka"><i
-                        class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i></div>
-                <div class="cursor-pointer relative mx-3 "><input class="w-[250px] h-[48px] rounded-md outline-none"
-                        type="text" placeholder="  Model"><i
-                        class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i></div>
-                <div class="bg-white text-[#8f8c8c] overflow-hidden rounded-md text-center m-3">
-                    <button class="border-r-2 w-[80px] h-[48px] bg-[#ca1016] text-white ">Hamisi</button>
-                    <button class="border-r-2 w-[50px] h-[48px] ">Yeni</button>
-                    <button class=" w-[100px] h-[48px] ">Surulmush</button>
+                class="desktop-inputs hidden md:flex md:flex-wrap md:items-center md:justify-center lg:items-center lg:justify-center lg:flex mt-3 lg:flex-wrap mx-3 ">
+                <div class="cursor-pointer relative mx-3 ">
+                    <select class="w-[250px] h-[48px] rounded-md outline-none appearance-none cursor-pointer px-3">
+                        <option value="marka" class="text-[#8f8c8c] py-5" disabled selected hidden>Marka</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i>
                 </div>
-                <div class="cursor-pointer relative mx-3 "><input class="w-[250px] h-[48px] rounded-md outline-none "
-                        type="text" placeholder="  Şəhər"><i
-                        class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i></div>
+                <div class="cursor-pointer relative mx-3 "><select
+                        class="w-[250px] h-[48px] rounded-md outline-none appearance-none cursor-pointer px-3"
+                        type="text">
+                        <option value="marka" class="text-[#8f8c8c]" disabled selected hidden>Model</option>
+                    </select><i class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i></div>
+                <div class="bg-white text-[#8f8c8c] overflow-hidden rounded-md text-center m-3 active-buttons">
+                    <button class="border-r-2 w-[80px] h-[48px] active">Hamisi</button>
+                    <button class="border-r-2 w-[50px] h-[48px] ">Yeni</button>
+                    <button class=" w-[100px] h-[48px]  ">Surulmush</button>
+                </div>
+                <div class="cursor-pointer relative mx-3 "><select
+                        class="w-[250px] h-[48px] rounded-md outline-none appearance-none cursor-pointer px-3"
+                        type="text">
+                        <option value="marka" class="text-[#8f8c8c]" disabled selected hidden>Şəhər</option>
+                    </select><i class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i></div>
                 <div class="bg-white overflow-hidden rounded-md text-center mx-3">
-                    <input class="border-r-2 w-[150px] h-[48px]" type="number" placeholder="  Qiymet, min." />
-                    <input class="w-[100px] h-[48px]" type="number" placeholder="  maks. " />
+                    <input class="border-r-2 w-[150px] h-[48px] outline-none" type="number"
+                        placeholder="  Qiymet, min." />
+                    <input class="w-[100px] h-[48px] outline-none" type="number" placeholder="  maks. " />
                 </div>
                 <div class="text-center rounded-md m-4 ">
                     <select name="" id="" class="w-[60px] h-10 rounded-md ">
@@ -144,27 +155,35 @@
                         <option value="">USD</option>
                         <option value="">EUR</option>
                     </select>
-                    <button class="bg-white h-10 w-20 mx-2  rounded-md">Kredit</button>
-                    <button class=" bg-white h-10 w-20 rounded-md">Barter</button>
+                    <button class="bg-white h-10 w-20 mx-2 rounded-md hover:border border-[#8f8c8c] ">Kredit</button>
+                    <button class=" bg-white h-10 w-20 rounded-md hover:border border-[#8f8c8c]">Barter</button>
                 </div>
-                <div class="cursor-pointer relative mx-3 "><input class="w-[250px] h-[45px] rounded-md outline-none"
-                        type="text" placeholder="  Ban novu"><i
-                        class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i></div>
-                <div class="bg-white overflow-hidden rounded-md text-center mx-3 ">
-                    <input class="border-r-2 w-[130px] h-[48px] outline-none" type="number" placeholder="  İl, min." />
-                    <input class="w-[100px] h-[48px] outline-none" type="number" placeholder="  maks. " />
+                <div class="cursor-pointer relative mx-3 "><select
+                        class="w-[250px] h-[45px] rounded-md outline-none appearance-none cursor-pointer px-3">
+                        <option value="marka" class="text-[#8f8c8c]" disabled selected hidden>Ban novu</option>
+                    </select><i class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i></div>
+                <div class="bg-white relative overflow-hidden rounded-md text-center mx-3 ">
+                    <select class="border-r-2 w-[130px] h-[48px] outline-none appearance-none cursor-pointer px-3">
+                        <option value="il" class="text-[#8f8c8c]" hidden>İl, min.</option>
+                    </select><i class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-28 top-4"></i>
+                    <select class="w-[100px] h-[48px] outline-none appearance-none cursor-pointer px-2">
+                        <option value="maks" class="text-[#8f8c8c] " disabled selected hidden>maks.</option>
+                    </select><i class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i>
                 </div>
 
             </div>
-            <div class="hidden lg:flex lg:justify-between items-center mt-5"> 
-                <div class="mx-14"><h1>Bu gun: <span class="text-[#639ce6]">1612 yeni elan</span></h1></div>
-               <div class="flex items-center ">
-                <h1 class="mx-14 text-[#8f8c8c]">Sifirla</h1>
-                <a class=" text-[#ca1016]" href="">Daha chox filtr <i class="fa-solid fa-chevron-down"></i></a>
-                <button class="mx-14 text-white w-[150px] h-[45px] bg-[#ca1016] rounded-md">Elanlari goster</button>
-               </div>
+            <div class="hidden lg:flex lg:justify-between items-center mt-5">
+                <div class="mx-14 cursor-pointer">
+                    <h1>Bu gun: <span class="text-[#639ce6]">1612 yeni elan</span></h1>
+                </div>
+                <div class="flex items-center ">
+                    <h1 class="mx-14 text-[#8f8c8c] cursor-pointer">Sifirla</h1>
+                    <a class=" text-[#ca1016]" href="">Daha chox filtr <i class="fa-solid fa-chevron-down"></i></a>
+                    <button class="mx-14 text-white w-[150px] h-[45px] bg-[#ca1016] rounded-md">Elanlari goster</button>
+                </div>
             </div>
-            <h1 class="text-[#8d94ad] lg:text-black lg:font-bold lg:pt-2 uppercase my-6 mx-3 px-2 lg:text-[20px]">Premium elanlar</h1>
+            <h1 class="text-[#8d94ad] lg:text-black lg:font-bold lg:pt-2 uppercase my-6 mx-3 px-2 lg:text-[20px]">
+                Premium elanlar</h1>
             <div class="cards grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 p-4">
             </div>
         </div>
@@ -191,9 +210,11 @@
                 </div>
             </div>
             <hr />
-            <div class="text-[#8d94ad] px-8 text-[15px] lg:flex lg:justify-evenly lg:items-center lg:bg-[#ca1016] lg:text-white">
+            <div
+                class="text-[#8d94ad] px-8 text-[15px] lg:flex lg:justify-evenly lg:items-center lg:bg-[#ca1016] lg:text-white">
                 <div>
-                Saytın Administrasiyası reklam bannerlərinin və yerləşdirilmiş elanların məzmununa görə məsuliyyət daşımır.
+                    Saytın Administrasiyası reklam bannerlərinin və yerləşdirilmiş elanların məzmununa görə məsuliyyət
+                    daşımır.
                 </div>
                 <div class="py-3 ">© 2006-2024 Digital Classifieds MMC. VÖEN: 1405631661</div>
             </div>
@@ -202,22 +223,22 @@
 
     <div
         class="sticky bottom-0 flex justify-around items-center py-2 text-[#8d94ad] bg-white uppercase md:hidden lg:hidden z-[500]">
-        <a><i class="fa-solid fa-house"></i>
+        <a class="hover:text-[#ca1016]"><i class="fa-solid fa-house"></i>
             <p class="text-[10px]">Əsas</p>
         </a>
-        <a><i class="fa-solid fa-heart px-5"></i>
+        <a hover:text-[#ca1016]><i class="fa-solid fa-heart px-5"></i>
             <p class="text-[10px]">Seçilmişlər</p>
         </a>
-        <button>
+        <button class="hover:text-[#ca1016]">
             <i
                 class="fa-solid fa-plus text-md flex justify-center items-center w-10 h-10 mx-2 border rounded-full text-white bg-[#b52a2a] absolute bottom-[50%]"></i>
             <p class="mt-6 text-[10px] uppercase">Yeni Elan</p>
         </button>
-        <a><i class="fa-solid fa-circle-user px-3"></i>
+        <a class="hover:text-[#ca1016]"><i class="fa-solid fa-circle-user px-3"></i>
             <p class="text-[10px]">Kabinet</p>
         </a>
 
-        <span onclick="bas()" href="#"><i class="fa-solid fa-bars px-4"></i>
+        <span class="hover:text-[#ca1016]" onclick="bas()"><i class="fa-solid fa-bars px-4"></i>
             <p class="text-[10px]">Daha çox</p>
         </span>
     </div>
@@ -229,10 +250,14 @@
         <a class="bg-white w-full block my-5 p-3" href="">Avtokataloq</a>
         <a class="bg-white w-full block my-5 p-3" href="">Moto</a>
         <div class="py-15">
-            <a class="bg-white w-full block px-3 p-8" href="">Butun elanlar</a> <hr>
-            <a class="bg-white w-full block px-3 p-8" href="">Salonlar</a> <hr>
-            <a class="bg-white w-full block px-3 p-8" href="">Ehtiyat hisseler ve aksesuarlar</a> <hr>
-            <a class="bg-white w-full block px-3 p-8" href="">Icare</a> <hr>
+            <a class="bg-white w-full block px-3 p-8" href="">Butun elanlar</a>
+            <hr>
+            <a class="bg-white w-full block px-3 p-8" href="">Salonlar</a>
+            <hr>
+            <a class="bg-white w-full block px-3 p-8" href="">Ehtiyat hisseler ve aksesuarlar</a>
+            <hr>
+            <a class="bg-white w-full block px-3 p-8" href="">Icare</a>
+            <hr>
             <a class="bg-white w-full block px-3 p-8" href="">Bizimle elage</a>
 
         </div>

@@ -924,9 +924,10 @@ function filterCars() {
   const selectedMarka = selectMarka.value
   const selectedModel = selectModel.value
   const selectedCity = selectCity.value
+  const selectedMarkaMob = mobileBrands.value
   cards.innerHTML = ''
   cars.forEach((item) => {
-    if (selectedMarka === item.brand || selectedModel === item.model || selectedCity === item.city) {
+    if (selectedMarka === item.brand || selectedModel === item.model || selectedCity === item.city || selectedMarkaMob === item.brand) {
       cards.innerHTML +=
         `
             <div class="card bg-white rounded-md shadow-lg">

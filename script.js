@@ -869,7 +869,7 @@ showCars()
 function showMenu() {
   menu.classList.toggle('open');
   if (menu.classList.contains('open')) {
-    body.style.overflow = 'hidden';
+    body.style.overflowY = 'hidden';
   } else {
     body.style.overflow = '';
   }

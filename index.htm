@@ -16,6 +16,11 @@
     #menu.open {
         transform: translateX(0);
     }
+
+    .active-buttons .active {
+        background-color: #ca1016;
+        color: white;
+    }
 </style>
 
 <body class="bg-[#ebedf3]">
@@ -81,8 +86,7 @@
         <div class="max-w-full bg-white mx-4 my-2 cursor-pointer rounded-md md:hidden lg:hidden">
             <div class="inputs-mobile flex justify-between items-center p-4 text-center">
                 <i class="fa-solid fa-car px-4 text-[#b52a2a]"></i>
-                <select class=" w-[330px] appearance-none">
-                    <option value="marka" class="text-[#8f8c8c] ">Bütün Markalar</option>
+                <select id="mobileBrands" class=" bg-white w-[330px] outline-none appearance-none">
                 </select>
                 <i class="fa-solid fa-chevron-right text-[#8d94ad] text-end  px-4 "></i>
 
@@ -95,16 +99,16 @@
         </div>
 
         <div class="flex justify-between items-center p-3 text-center bg-white mx-4 rounded-md md:hidden lg:hidden">
-            <select class="px-4 w-[330px] appearance-none">
-                <option value="marka" class="text-[#8f8c8c] ">Moto</option>
+            <select class="px-4 w-[330px] bg-white appearance-none outline-none">
+                <option value="marka" class="text-[#8f8c8c]">Moto</option>
             </select>
             <i class="fa-solid fa-chevron-right text-[#8d94ad] text-end  px-4 "></i>
 
         </div>
         <div
             class="flex justify-between items-center p-3 mt-2 text-center bg-white mx-4 rounded-md md:hidden lg:hidden">
-            <select class="px-2 w-[330px] appearance-none">
-                <option value="marka" class="text-[#8f8c8c] py-5">Avtokataloq</option>
+            <select class="px-2 bg-white w-[330px] appearance-none outline-none">
+                <option value="marka" class="text-[#8f8c8c] py-5 ">Avtokataloq</option>
             </select>
 
             <i class="fa-solid fa-chevron-right text-[#8d94ad] text-end px-4 "></i>
@@ -124,12 +128,13 @@
             <div
                 class="desktop-inputs hidden md:flex md:flex-wrap md:items-center md:justify-center lg:items-center lg:justify-center lg:flex mt-3 lg:flex-wrap">
                 <div class="cursor-pointer relative mx-3 ">
-                    <select id="selectMarka" onchange="filterCars()" class="w-[250px] h-[48px] rounded-md outline-none appearance-none cursor-pointer px-3">
-                       
+                    <select id="selectMarka" onchange="filterCars()"
+                        class="w-[250px] h-[48px] rounded-md outline-none appearance-none cursor-pointer px-3">
+
                     </select>
                     <i class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i>
                 </div>
-                <div class="cursor-pointer relative mx-3 "><select  id="selectModel" onchange="filterCars()"
+                <div class="cursor-pointer relative mx-3 "><select id="selectModel" onchange="filterCars()"
                         class="w-[250px] h-[48px] rounded-md outline-none appearance-none cursor-pointer px-3"
                         type="text">
                     </select><i class="fa-solid fa-chevron-down text-[#8f8c8c] absolute right-4 top-4"></i></div>
@@ -236,7 +241,7 @@
             <p class="text-[10px]">Kabinet</p>
         </a>
 
-        <span class="hover:text-[#ca1016]" onclick="bas()"><i class="fa-solid fa-bars px-4"></i>
+        <span class="hover:text-[#ca1016]" onclick="showMenu()"><i class="fa-solid fa-bars px-4"></i>
             <p class="text-[10px]">Daha çox</p>
         </span>
     </div>
@@ -248,15 +253,15 @@
         <a class="bg-white w-full block my-5 p-3" href="">Avtokataloq</a>
         <a class="bg-white w-full block my-5 p-3" href="">Moto</a>
         <div class="py-15">
-            <a class="bg-white w-full block px-3 p-8" href="">Butun elanlar</a>
+            <a class="bg-white w-full block px-3 p-4" href="">Butun elanlar</a>
             <hr>
-            <a class="bg-white w-full block px-3 p-8" href="">Salonlar</a>
+            <a class="bg-white w-full block px-3 p-4" href="">Salonlar</a>
             <hr>
-            <a class="bg-white w-full block px-3 p-8" href="">Ehtiyat hisseler ve aksesuarlar</a>
+            <a class="bg-white w-full block px-3 p-4" href="">Ehtiyat hisseler ve aksesuarlar</a>
             <hr>
-            <a class="bg-white w-full block px-3 p-8" href="">Icare</a>
+            <a class="bg-white w-full block px-3 p-4" href="">Icare</a>
             <hr>
-            <a class="bg-white w-full block px-3 p-8" href="">Bizimle elage</a>
+            <a class="bg-white w-full block px-3 p-4" href="">Bizimle elage</a>
 
         </div>
     </div>

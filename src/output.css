@@ -24,10 +24,6 @@
 ::after {
   --tw-content: '';
 }
-.active-buttons .active{
-  background-color: #ca1016;
-  color: white;
-}
 
 /*
 1. Use a consistent sensible line-height in all browsers.

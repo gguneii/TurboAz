@@ -832,6 +832,7 @@ const cards = document.querySelector('.cards')
 const selectMarka = document.getElementById('selectMarka')
 const selectModel = document.getElementById('selectModel')
 const selectCity = document.getElementById('selectCity')
+const mobileBrands = document.getElementById('mobileBrands')
 const menu = document.getElementById('menu')
 const body = document.querySelector('body')
 const buttons = document.querySelectorAll('.active-buttons button');
@@ -878,20 +879,27 @@ const markaSet = new Set()
 const modelSet = new Set()
 const citySet = new Set()
 
+const markaMobileSet = new Set()
+
 for (let j = 0; j < cars.length; j++) {
   markaSet.add(cars[j].brand)
   modelSet.add(cars[j].model)
   citySet.add(cars[j].city)
+  markaMobileSet.add(cars[j].brand)
 }
 
 const marka = Array.from(markaSet)
 const model = Array.from(modelSet)
 const city = Array.from(citySet)
 
+const markaMob = Array.from(markaMobileSet)
+
 function addMarka() {
   selectMarka.innerHTML = ' <option value="marka" class="text-[#8f8c8c] py-5">Marka</option>'
   selectModel.innerHTML = '<option value="model" class="text-[#8f8c8c]">Model</option>'
   selectCity.innerHTML = '<option value="city" class="text-[#8f8c8c]">Şəhər</option>'
+
+  mobileBrands.innerHTML = '<option value="marka" class="text-[#8f8c8c] "> Bütün Markalar</option>'
   marka.map((item) => {
     selectMarka.innerHTML += `<option value="${item}">${item}</option>`
   })
@@ -902,6 +910,10 @@ function addMarka() {
 
   city.map((item) => {
     selectCity.innerHTML += `<option value ="${item}">${item}</option>`
+  })
+
+  markaMob.map((item) => {
+    mobileBrands.innerHTML += `<option value ="${ item}"> ${item}</option>`
   })
 }
 addMarka()

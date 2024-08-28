@@ -1,5 +1,4 @@
-const cars = [
-  {
+const cars = [{
     id: "1",
     brand: "Abarth",
     model: "Seltos",
@@ -830,13 +829,26 @@ const cars = [
 ]
 
 const cards = document.querySelector('.cards')
+const selectMarka = document.getElementById('selectMarka')
+const selectModel = document.getElementById('selectModel')
+const selectCity = document.getElementById('selectCity')
+const menu = document.getElementById('menu')
+const body = document.querySelector('body')
+const buttons = document.querySelectorAll('.active-buttons button');
 
-function show() {
+buttons.forEach(button => {
+  button.addEventListener('click', function () {
+    buttons.forEach(btn => btn.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
 
-    cars.map((item) => {
-        cards.innerHTML +=
-            `
-             <div class="card  bg-white rounded-md shadow-lg">
+function showCars() {
+  cards.innerHTML = ''
+  cars.map((item) => {
+    cards.innerHTML +=
+      `
+            <div class="card bg-white rounded-md shadow-lg">
                 <div class="cars w-full h-60">
                     <img class="w-full h-full object-cover rounded-t-lg" src="${item.images}" alt="car">
                 </div>
@@ -844,31 +856,79 @@ function show() {
                     <p class="font-bold text-lg">${item.price} $</p>
                     <p class="font-medium text-md">${item.brand}, ${item.model}</p>
                     <p>${item.year}, 2.0 L, 0 km</p>
-                    <p class="text-[#8d94ad]">${item.city}, bugun 22:01</p>    
-
+                   <p class="text-[#8d94ad]">${item.city}, bugun 22:01</p>    
                 </div>
               </div>
             `;
-    })
+
+  })
 }
-show()
+showCars()
 
-const menu = document.getElementById('menu')
-const body = document.querySelector('body')
+function showMenu() {
+  menu.classList.toggle('open');
+  if (menu.classList.contains('open')) {
+    body.style.overflow = 'hidden';
+  } else {
+    body.style.overflow = '';
+  }
+}
 
-function bas() {
-    menu.classList.toggle('open');
-    if (menu.classList.contains('open')) {
-        body.style.overflow = 'hidden';
-    } else {
-        body.style.overflow = '';
+const markaSet = new Set()
+const modelSet = new Set()
+const citySet = new Set()
+
+for (let j = 0; j < cars.length; j++) {
+  markaSet.add(cars[j].brand)
+  modelSet.add(cars[j].model)
+  citySet.add(cars[j].city)
+}
+
+const marka = Array.from(markaSet)
+const model = Array.from(modelSet)
+const city = Array.from(citySet)
+
+function addMarka() {
+  selectMarka.innerHTML = ' <option value="marka" class="text-[#8f8c8c] py-5">Marka</option>'
+  selectModel.innerHTML = '<option value="model" class="text-[#8f8c8c]">Model</option>'
+  selectCity.innerHTML = '<option value="city" class="text-[#8f8c8c]">Şəhər</option>'
+  marka.map((item) => {
+    selectMarka.innerHTML += `<option value="${item}">${item}</option>`
+  })
+
+  model.map((item) => {
+    selectModel.innerHTML += `<option value ="${item}">${item}</option>`
+  })
+
+  city.map((item) => {
+    selectCity.innerHTML += `<option value ="${item}">${item}</option>`
+  })
+}
+addMarka()
+
+function filterCars() {
+
+  //fragment yaratsam kodun ishleme performansi artacag eger carslarin sayi artarsa
+  const selectedMarka = selectMarka.value
+  const selectedModel = selectModel.value
+  const selectedCity = selectCity.value
+  cards.innerHTML = ''
+  cars.forEach((item) => {
+    if (selectedMarka === item.brand || selectedModel === item.model || selectedCity === item.city) {
+      cards.innerHTML +=
+        `
+            <div class="card bg-white rounded-md shadow-lg">
+                <div class="cars w-full h-60">
+                    <img class="w-full h-full object-cover rounded-t-lg" src="${item.images}" alt="car">
+                </div>
+                <div class="texts p-4">
+                    <p class="font-bold text-lg">${item.price} $</p>
+                    <p class="font-medium text-md">${item.brand}, ${item.model}</p>
+                    <p>${item.year}, 2.0 L, 0 km</p>
+                   <p class="text-[#8d94ad]">${item.city}, bugun 22:01</p>    
+                </div>
+              </div>
+            `;
     }
+  })
 }
-const buttons = document.querySelectorAll('.active-buttons button');
-
-buttons.forEach(button => {
-    button.addEventListener('click', function() {
-        buttons.forEach(btn => btn.classList.remove('active')); 
-        this.classList.add('active'); 
-    });
-});
